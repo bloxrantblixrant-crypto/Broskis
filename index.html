@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Program Login</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.login-box{
+background:white;
+padding:30px;
+border-radius:20px;
+width:320px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+text-align:center;
+}
+
+h1{
+margin-bottom:20px;
+color:#0077ff;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:2px solid #ddd;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0077ff;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+}
+
+button:hover{
+background:#005fd1;
+}
+
+#error{
+color:red;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+<h1>🏫 School Program</h1>
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p id="error"></p>
+
+</div>
+
+<script>
+
+const PASSWORD="AlteoCobaj2026";
+
+function login(){
+
+let pass=document.getElementById("password").value;
+
+if(pass===PASSWORD){
+
+window.location.href="home.html";
+
+}else{
+
+document.getElementById("error").innerHTML="Wrong Password!";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
