@@ -3,93 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>School Program</title>
+<title>School Messages</title>
 
 <style>
 body{
-    margin:0;
     font-family:Arial,sans-serif;
+    margin:0;
     background:#eef5ff;
 }
 
 header{
     background:#0077ff;
     color:white;
-    padding:20px;
     text-align:center;
+    padding:20px;
 }
 
 .container{
+    max-width:700px;
+    margin:20px auto;
     padding:20px;
 }
 
-.card{
-    background:white;
-    padding:20px;
-    margin:15px 0;
-    border-radius:15px;
-    box-shadow:0 5px 10px rgba(0,0,0,.15);
+input,textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ccc;
+    box-sizing:border-box;
 }
 
-.button{
-    display:inline-block;
-    margin-top:10px;
-    padding:12px 20px;
+button{
     background:#0077ff;
     color:white;
-    text-decoration:none;
+    border:none;
+    padding:12px 20px;
     border-radius:10px;
+    cursor:pointer;
 }
 
-.button:hover{
+button:hover{
     background:#005fd1;
 }
 
-footer{
-    text-align:center;
-    padding:20px;
-    color:#666;
+.message{
+    background:white;
+    margin-top:15px;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.back{
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+    color:#0077ff;
 }
 </style>
 
 </head>
-
 <body>
 
 <header>
-<h1>🏫 School Program</h1>
-<p>Welcome!</p>
+<h1>💬 School Message Board</h1>
 </header>
 
 <div class="container">
 
-<div class="card">
-<h2>📢 Announcements</h2>
-<p>Welcome to the School Program website!</p>
-</div>
+<input id="username" placeholder="Your Name">
 
-<div class="card">
-<h2>💬 Message Board</h2>
-<p>Chat with everyone.</p>
-<a class="button" href="messages.html">Open Messages</a>
-</div>
+<textarea id="message" placeholder="Write a message..."></textarea>
 
-<div class="card">
-<h2>🖼️ Gallery</h2>
-<p>View and upload photos.</p>
-<a class="button" href="gallery.html">Open Gallery</a>
-</div>
+<button onclick="postMessage()">Post Message</button>
 
-<div class="card">
-<h2>📚 Homework</h2>
-<p>No homework today 🎉</p>
-</div>
+<div id="messages"></div>
+
+<a class="back" href="home.html">⬅ Back to Home</a>
 
 </div>
 
-<footer>
-Made by Alteo
-</footer>
+<script>
+
+let messages = JSON.parse(localStorage.getItem("schoolMessages")) || [];
+
+function save(){
+    localStorage.setItem("schoolMessages",JSON.stringify(messages));
+}
+
+function render(){
+
+const box=document.getElementById("messages");
+box.innerHTML="";
+
+messages.slice().reverse().forEach(msg=>{
+
+box.innerHTML+=`
+<div class="message">
+<b>${msg.name}</b><br>
+${msg.text}
+</div>
+`;
+
+});
+
+}
+
+function postMessage(){
+
+const name=document.getElementById("username").value.trim();
+const text=document.getElementById("message").value.trim();
+
+if(name===""||text===""){
+alert("Fill in both boxes.");
+return;
+}
+
+messages.push({
+name:name,
+text:text
+});
+
+save();
+render();
+
+document.getElementById("message").value="";
+
+}
+
+render();
+
+</script>
 
 </body>
 </html>
