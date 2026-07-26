@@ -67,7 +67,7 @@ button:hover{
 <body>
 
 <header>
-<h1>💬 School Message Board</h1>
+<h1>School Message Board</h1>
 </header>
 
 <div class="container">
