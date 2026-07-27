@@ -3,138 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>School Messages</title>
+<title>Messages</title>
 
 <style>
 body{
-    font-family:Arial,sans-serif;
-    margin:0;
-    background:#eef5ff;
+margin:0;
+font-family:Arial,sans-serif;
+background:#eef3ff;
 }
 
 header{
-    background:#0077ff;
-    color:white;
-    text-align:center;
-    padding:20px;
+background:#3d73ea;
+color:white;
+padding:35px;
+text-align:center;
 }
 
 .container{
-    max-width:700px;
-    margin:20px auto;
-    padding:20px;
-}
-
-input,textarea{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border-radius:10px;
-    border:1px solid #ccc;
-    box-sizing:border-box;
-}
-
-button{
-    background:#0077ff;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:10px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#005fd1;
+max-width:900px;
+margin:auto;
+padding:20px;
 }
 
 .message{
-    background:white;
-    margin-top:15px;
-    padding:15px;
-    border-radius:12px;
-    box-shadow:0 2px 8px rgba(0,0,0,.1);
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+margin-bottom:20px;
 }
 
 .back{
-    display:inline-block;
-    margin-top:20px;
-    text-decoration:none;
-    color:#0077ff;
+display:inline-block;
+padding:15px 30px;
+background:#3d73ea;
+color:white;
+text-decoration:none;
+border-radius:12px;
+font-size:18px;
 }
 </style>
 
 </head>
+
 <body>
 
 <header>
-<h1>School Message Board</h1>
+<h1>School Messages</h1>
 </header>
 
 <div class="container">
 
-<input id="username" placeholder="Your Name">
-
-<textarea id="message" placeholder="Write a message..."></textarea>
-
-<button onclick="postMessage()">Post Message</button>
-
-<div id="messages"></div>
-
-<a class="back" href="home.html">⬅ Back to Home</a>
-
-</div>
-
-<script>
-
-let messages = JSON.parse(localStorage.getItem("schoolMessages")) || [];
-
-function save(){
-    localStorage.setItem("schoolMessages",JSON.stringify(messages));
-}
-
-function render(){
-
-const box=document.getElementById("messages");
-box.innerHTML="";
-
-messages.slice().reverse().forEach(msg=>{
-
-box.innerHTML+=`
 <div class="message">
-<b>${msg.name}</b><br>
-${msg.text}
+<h2>No Messages</h2>
+<p>There are currently no messages.</p>
 </div>
-`;
 
-});
+<!--
+ADD MORE MESSAGES HERE
 
-}
+<div class="message">
+<h2>School Update</h2>
+<p>School starts Monday at 8:30 AM.</p>
+</div>
 
-function postMessage(){
+-->
 
-const name=document.getElementById("username").value.trim();
-const text=document.getElementById("message").value.trim();
+<a href="home.html" class="back">⬅ Back</a>
 
-if(name===""||text===""){
-alert("Fill in both boxes.");
-return;
-}
-
-messages.push({
-name:name,
-text:text
-});
-
-save();
-render();
-
-document.getElementById("message").value="";
-
-}
-
-render();
-
-</script>
+</div>
 
 </body>
 </html>
