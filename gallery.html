@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Gallery</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#eef3ff;
+}
+
+header{
+background:#3d73ea;
+color:white;
+padding:30px;
+text-align:center;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.photo{
+background:white;
+padding:10px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+text-align:center;
+}
+
+.photo img{
+width:100%;
+border-radius:10px;
+}
+
+.back{
+display:inline-block;
+margin-top:30px;
+padding:12px 25px;
+background:#3d73ea;
+color:white;
+text-decoration:none;
+border-radius:10px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>🖼️ School Gallery</h1>
+</header>
+
+<div class="container">
+
+<div class="gallery">
+
+<div class="photo">
+<h3>No Photos</h3>
+<p>There are currently no photos.</p>
+</div>
+
+<!--
+ADD PHOTOS BELOW
+
+<div class="photo">
+<img src="photo1.jpg">
+<p>Sports Day</p>
+</div>
+
+-->
+
+</div>
+
+<a href="home.html" class="back">⬅ Back</a>
+
+</div>
+
+</body>
+</html>
